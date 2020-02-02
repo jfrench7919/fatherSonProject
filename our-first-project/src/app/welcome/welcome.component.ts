@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Plane} from '../models/plane.mdel';
 
 @Component({
   selector: 'app-welcome',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.component.scss']
 })
 export class WelcomeComponent implements OnInit {
+
+  plane: Plane;
+  planes: Plane[];
 
   constructor() { }
 
