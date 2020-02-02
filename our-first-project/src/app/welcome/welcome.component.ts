@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Plane} from '../models/plane.mdel';
+import { PlaneBuilderService } from '../services/plane-builder.service';
 
 @Component({
   selector: 'app-welcome',
@@ -10,10 +11,13 @@ export class WelcomeComponent implements OnInit {
 
   plane: Plane;
   planes: Plane[];
+  
 
-  constructor() { }
+  constructor(private planeService: PlaneBuilderService) { }
 
   ngOnInit() {
+    this.planeService.buildPlane();
+    this.plane = this.planeService.addMotors();
   }
 
 }
