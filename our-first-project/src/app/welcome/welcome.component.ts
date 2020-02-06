@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Plane} from '../models/plane.mdel';
 import { PlaneBuilderService } from '../services/plane-builder.service';
+import { BattleField } from '../models/battle-field.model';
+import { Base } from '../models/base.model';
 
 @Component({
   selector: 'app-welcome',
@@ -9,15 +11,14 @@ import { PlaneBuilderService } from '../services/plane-builder.service';
 })
 export class WelcomeComponent implements OnInit {
 
-  plane: Plane;
-  planes: Plane[];
+  battleField: BattleField;
   
-
-  constructor(private planeService: PlaneBuilderService) { }
+  constructor(private planeService: PlaneBuilderService) { 
+    this.battleField = new BattleField(planeService);
+  }
 
   ngOnInit() {
-    this.planeService.buildPlane();
-    this.plane = this.planeService.addMotors();
+    
   }
 
 }

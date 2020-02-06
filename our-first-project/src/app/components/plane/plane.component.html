@@ -1,0 +1,23 @@
+<div class="justify-content-center">
+    <div class="plane"></div>
+    <button type="button" class="btn btn-secondary" [ngbPopover]="popContent" popoverTitle="Heads Up Display">
+    Display Hud
+    </button>
+    <ng-template #popContent>
+        <div>
+            <app-config-hud [plane]="this.plane"></app-config-hud>
+        </div>
+        <div>
+            <app-motor-hud [plane]="this.plane"></app-motor-hud>
+        </div>
+        <div>
+            <app-flight-hud [plane]="this.plane"></app-flight-hud>
+        </div>
+        <div>
+            <app-weapon-hud [plane]="this.plane"></app-weapon-hud>
+        </div>
+        <div>
+            <app-plane-stats [plane]="this.plane"></app-plane-stats>
+        </div>
+    </ng-template>
+</div>
