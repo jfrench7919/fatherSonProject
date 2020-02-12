@@ -4,7 +4,7 @@ export class Base{
         this.damage = 0;
     }
     
-    damage: number;
+    public damage: number;
     
     public get strength() : number {
         return  this.size * 100;
@@ -13,4 +13,12 @@ export class Base{
     public get health() : number {
         return  this.strength - this.damage;
     }
+}
+
+export interface IBase{
+    size: number;
+    name: string;
+    damage: number;
+    strength: number;
+    health: number;
 }
