@@ -2,6 +2,7 @@ export interface IBase {
     size: number;
     name: string;
     damage: number;
+    selected: boolean;
 }
 
 export class BaseModel implements IBase {
@@ -10,16 +11,18 @@ export class BaseModel implements IBase {
     damage: number;
     strength: number;
     health: number;
+    selected: boolean;
 }
 
-export class BaseExtention extends BaseModel {
+export class BaseExtention implements BaseModel {
 
     constructor(public size: number, public name: string) {
-        super();
         this.damage = 0;
+        this.selected = false;
     }
 
     public damage: number;
+    public selected: boolean;
 
     public get strength(): number {
         return  this.size * 100;

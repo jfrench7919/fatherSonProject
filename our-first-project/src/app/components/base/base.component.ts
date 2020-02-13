@@ -19,7 +19,7 @@ export class BaseComponent implements OnInit {
   }
 
   onBaseClick(clickedBase: BaseModel): void {
-    console.log(clickedBase);
+    this.base.selected = true;
     this.sharedStore.dispatch(SelectedBaseActions.setSelectedBase({ enemyBase: clickedBase }));
   }
 
