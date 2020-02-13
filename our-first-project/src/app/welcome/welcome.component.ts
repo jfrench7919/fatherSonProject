@@ -18,9 +18,9 @@ export class WelcomeComponent implements OnInit {
   selectedBase: BaseModel;
 
   battleField: BattleField;
-  
+
   constructor(private planeService: PlaneBuilderService,
-    private sharedStore: Store<fromShared.State>) { 
+              private sharedStore: Store<fromShared.State>) {
     this.battleField = new BattleField(planeService);
   }
 
@@ -32,9 +32,6 @@ export class WelcomeComponent implements OnInit {
     this.selectedBase$.subscribe(base => {
       this.selectedBase = base;
     });
-
-    const b = new BaseExtention(49, 'Test');
-    this.sharedStore.dispatch(SelectedBaseActions.setSelectedBase({ base: <BaseModel>b }));
   }
 
 }

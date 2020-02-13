@@ -5,20 +5,20 @@ import { BaseModel, IBase } from 'src/app/models/base.model';
 // State
 
 export interface State {
-  base: BaseModel | null;
+  enemyBase: BaseModel | null;
 }
 
 export const initialState: State = {
-  base: null
+  enemyBase: null
 };
 
 // Reducer
 
 export const reducer = createReducer(
   initialState,
-  on(SelectedBaseActions.setSelectedBase, (state, { base }) => ({ ...state, base: base })),
+  on(SelectedBaseActions.setSelectedBase, (state, { enemyBase }) => ({...state, enemyBase: enemyBase })),
 );
 
 // Selectors
 
-export const getSelectedBase = (state: State) => state.base;
+export const getSelectedBase = (state: State) => state.enemyBase;

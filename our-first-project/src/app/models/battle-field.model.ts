@@ -1,5 +1,5 @@
 import { Plane } from './plane.model';
-import { BaseModel } from './base.model';
+import { BaseModel, BaseExtention } from './base.model';
 import { PlaneBuilderService } from '../services/plane-builder.service';
 
 export class BattleField{
@@ -11,11 +11,11 @@ export class BattleField{
         this.bases = [];
     }
 
-    public addBase(): void{
-        this.bases.push(new BaseModel(40, 'Jonathan Land'));
+    public addBase(): void {
+        this.bases.push(new BaseExtention(40, 'Jonathan Land'));
     }
 
-    public addPlane(): void{
+    public addPlane(): void {
         this.planes.push(this.planeBuilderService.getNewPlane());
     }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BaseModel } from 'src/app/models/base.model';
+import { BaseModel, IBase } from 'src/app/models/base.model';
 import * as fromShared from '../../shared/store/reducers';
 import { SelectedBaseActions } from '../../shared/store/actions';
 import { Store } from '@ngrx/store';
@@ -18,9 +18,9 @@ export class BaseComponent implements OnInit {
   ngOnInit() {
   }
 
-  onBaseClick(base: BaseModel): void{
-    alert('Test');
-    this.sharedStore.dispatch(SelectedBaseActions.setSelectedBase({ base: base }));
+  onBaseClick(clickedBase: BaseModel): void {
+    console.log(clickedBase);
+    this.sharedStore.dispatch(SelectedBaseActions.setSelectedBase({ enemyBase: clickedBase }));
   }
 
 }
