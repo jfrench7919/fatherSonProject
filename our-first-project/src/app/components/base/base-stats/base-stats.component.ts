@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Base } from 'src/app/models/base.model';
+import { BaseModel } from 'src/app/models/base.model';
 
 @Component({
   selector: 'app-base-stats',
@@ -8,7 +8,7 @@ import { Base } from 'src/app/models/base.model';
 })
 export class BaseStatsComponent implements OnInit {
 
-  @Input() base: Base;
+  @Input() base: BaseModel;
   
   constructor() { }
 

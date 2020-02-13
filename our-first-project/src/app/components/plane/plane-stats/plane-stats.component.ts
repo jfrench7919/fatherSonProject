@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Plane } from 'src/app/models/plane.mdel';
+import { Plane } from 'src/app/models/plane.model';
 
 @Component({
   selector: 'app-plane-stats',

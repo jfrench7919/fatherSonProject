@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Plane } from '../models/plane.mdel';
+import { Plane } from '../models/plane.model';
 import { Motor } from '../models/motor.model';
 import { Gun } from '../models/gun.model';
 import { Bomb } from '../models/bomb.model';

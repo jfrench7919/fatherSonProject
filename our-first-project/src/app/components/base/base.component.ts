@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Base } from 'src/app/models/base.model';
+import { BaseModel } from 'src/app/models/base.model';
+import * as fromShared from '../../shared/store/reducers';
+import { SelectedBaseActions } from '../../shared/store/actions';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-base',
@@ -8,11 +11,16 @@ import { Base } from 'src/app/models/base.model';
 })
 export class BaseComponent implements OnInit {
 
-  @Input() base: Base;
+  @Input() base: BaseModel;
 
-  constructor() { }
+  constructor(private sharedStore: Store<fromShared.State>) { }
 
   ngOnInit() {
+  }
+
+  onBaseClick(base: BaseModel): void{
+    alert('Test');
+    this.sharedStore.dispatch(SelectedBaseActions.setSelectedBase({ base: base }));
   }
 
 }

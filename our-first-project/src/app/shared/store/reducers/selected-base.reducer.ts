@@ -1,11 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
 import { SelectedBaseActions } from '../actions';
-import { Base, IBase } from 'src/app/models/base.model';
+import { BaseModel, IBase } from 'src/app/models/base.model';
 
 // State
 
 export interface State {
-  base: IBase | null;
+  base: BaseModel | null;
 }
 
 export const initialState: State = {

@@ -1,7 +1,7 @@
 import { Motor } from './motor.model';
 import { Gun } from './gun.model';
 import { Bomb } from './bomb.model';
-import { Base } from './base.model';
+import { BaseModel } from './base.model';
 
 export class Plane{
     planeType: string;
@@ -25,11 +25,11 @@ export class Plane{
         this.motorsRunning = false;
     }
 
-    dropBomb(base: Base){
+    dropBomb(base: BaseModel){
 
     }
 
-    shootGun(base: Base){
+    shootGun(base: BaseModel){
 
     }
 

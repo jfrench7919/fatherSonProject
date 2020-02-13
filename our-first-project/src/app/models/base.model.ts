@@ -1,6 +1,19 @@
-export class Base{
+export class BaseModel{
     
     constructor(public size: number, public name: string){
+        this.damage = 0;
+    }
+
+    damage: number;
+    strength: number;
+    health: number;
+    
+}
+
+export class BaseExtention extends BaseModel{
+
+    constructor(public size: number, public name: string){
+        super(size, name)
         this.damage = 0;
     }
     
@@ -18,7 +31,6 @@ export class Base{
 export interface IBase{
     size: number;
     name: string;
-    damage: number;
     strength: number;
     health: number;
 }

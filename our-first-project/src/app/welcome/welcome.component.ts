@@ -5,7 +5,7 @@ import * as fromShared from '../shared/store/reducers';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { SelectedBaseActions } from '../shared/store/actions';
-import { Base, IBase } from '../models/base.model';
+import { BaseModel, BaseExtention, IBase } from '../models/base.model';
 
 @Component({
   selector: 'app-welcome',
@@ -14,8 +14,8 @@ import { Base, IBase } from '../models/base.model';
 })
 export class WelcomeComponent implements OnInit {
 
-  selectedBase$: Observable<Base>;
-  selectedBase: Base;
+  selectedBase$: Observable<BaseModel>;
+  selectedBase: BaseModel;
 
   battleField: BattleField;
   
@@ -31,11 +31,10 @@ export class WelcomeComponent implements OnInit {
 
     this.selectedBase$.subscribe(base => {
       this.selectedBase = base;
-      alert(JSON.stringify(base));
     });
 
-    const b = new Base(49, 'Test');
-    this.sharedStore.dispatch(SelectedBaseActions.setSelectedBase({ base: {name: b.name, size: b.size, strength: b.strength, health: b.health, damage: b.damage} }));
+    const b = new BaseExtention(49, 'Test');
+    this.sharedStore.dispatch(SelectedBaseActions.setSelectedBase({ base: <BaseModel>b }));
   }
 
 }
