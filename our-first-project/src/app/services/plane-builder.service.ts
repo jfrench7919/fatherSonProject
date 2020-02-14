@@ -11,22 +11,22 @@ export class PlaneBuilderService {
   constructor() {
   }
 
-  addMotors(plane: PlaneExtention, motor: Motor): PlaneExtention{
+  addMotors(plane: PlaneExtention, motor: Motor): PlaneExtention {
     plane.motors.push(motor);
     return plane;
   }
 
-  addGuns(plane: PlaneExtention, gun: Gun): PlaneExtention{
+  addGuns(plane: PlaneExtention, gun: Gun): PlaneExtention {
     plane.guns.push(gun);
     return plane;
   }
 
-  addBomb(plane: PlaneExtention, bomb: Bomb): PlaneExtention{
+  addBomb(plane: PlaneExtention, bomb: Bomb): PlaneExtention {
     plane.bombs.push(bomb);
     return plane;
   }
 
-  getNewPlane(): PlaneExtention{
+  getNewPlane(): PlaneExtention {
     return new PlaneExtention();
   }
 }

@@ -4,16 +4,16 @@
     Display Hud
     </button>
     <ng-template #popContent>
-        <div>
+        <div *ngIf="!this.plane.isFlying">
             <app-config-hud [plane]="this.plane"></app-config-hud>
         </div>
-        <div>
+        <div *ngIf="!this.plane.motorRunning">
             <app-motor-hud [plane]="this.plane"></app-motor-hud>
         </div>
-        <div>
+        <div *ngIf="this.plane.motorRunning">
             <app-flight-hud [plane]="this.plane"></app-flight-hud>
         </div>
-        <div>
+        <div *ngIf="this.plane.isFlying">
             <app-weapon-hud [plane]="this.plane"></app-weapon-hud>
         </div>
         <div>

@@ -1,8 +1,8 @@
 <div class="d-inline-flex">
-    <div class="p-2">
+    <div *ngIf="!this.plane.motorRunning" class="p-2">
         <button type="button" class="btn btn-dark">Start Motor</button>
     </div>
-    <div class="p-2">
+    <div *ngIf="this.plane.motorRunning" class="p-2">
         <button type="button" class="btn btn-dark">Stop Motor</button>
     </div>
 </div>
