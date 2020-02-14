@@ -3,14 +3,14 @@ import { Gun } from './gun.model';
 import { Bomb } from './bomb.model';
 import { BaseModel } from './base.model';
 
-export class Plane{
+export class PlaneModel{
     planeType: string;
-    
+
     motors: Motor[];
     guns: Gun[];
     bombs: Bomb[];
 
-    altitude: Number;
+    altitude: number;
     motorsRunning: boolean;
 
     public get isFlying() : boolean {

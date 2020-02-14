@@ -1,9 +1,11 @@
 import { combineReducers, createFeatureSelector, createSelector, Action } from '@ngrx/store';
-import * as fromSelectedBase from './selected-base.reducer';
+import * as fromBase from './base.reducer';
+import * as fromPlane from './plane.reducer';
 import { RootState } from '../../models/root-state';
 
 export interface SharedState {
-  selectedBase: fromSelectedBase.State;
+  base: fromBase.State;
+  plane: fromPlane.State;
 }
 
 // Include SharedState in root state
@@ -14,7 +16,8 @@ export interface State extends RootState {
 /** Provide reducer in AoT-compilation happy way */
 export function reducers(state: SharedState | undefined, action: Action): SharedState {
   return combineReducers({
-    selectedBase: fromSelectedBase.reducer,
+    base: fromBase.reducer,
+    plane: fromPlane.reducer,
   })(state, action);
 }
 
@@ -25,15 +28,23 @@ export function reducers(state: SharedState | undefined, action: Action): Shared
  */
 export const getSharedState = createFeatureSelector<State, SharedState>('shared');
 
-// UserSelectedCoi State
-
-export const getSelectedBaseState = createSelector(
+export const getBaseState = createSelector(
   getSharedState,
-  state => state.selectedBase
+  state => state.base
 );
 
-export const getSelectedBase = createSelector(
-  getSelectedBaseState,
-  fromSelectedBase.getSelectedBase
+export const getBases = createSelector(
+  getBaseState,
+  fromBase.getBases
+);
+
+export const getPlaneState = createSelector(
+  getSharedState,
+  state => state.plane
+);
+
+export const getPlanes = createSelector(
+  getPlaneState,
+  fromPlane.getPlanes
 );
 

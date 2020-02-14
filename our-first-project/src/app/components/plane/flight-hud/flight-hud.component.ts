@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Plane } from 'src/app/models/plane.model';
+import { PlaneModel } from 'src/app/models/plane.model';
 
 @Component({
   selector: 'app-flight-hud',
@@ -8,7 +8,7 @@ import { Plane } from 'src/app/models/plane.model';
 })
 export class FlightHudComponent implements OnInit {
 
-  @Input() plane: Plane;
+  @Input() plane: PlaneModel;
 
   constructor() { }
 

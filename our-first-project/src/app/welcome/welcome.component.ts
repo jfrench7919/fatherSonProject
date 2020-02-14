@@ -4,8 +4,8 @@ import { BattleField } from '../models/battle-field.model';
 import * as fromShared from '../shared/store/reducers';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import { SelectedBaseActions } from '../shared/store/actions';
 import { BaseModel, BaseExtention, IBase } from '../models/base.model';
+import { PlaneModel } from '../models/plane.model';
 
 @Component({
   selector: 'app-welcome',
@@ -14,23 +14,34 @@ import { BaseModel, BaseExtention, IBase } from '../models/base.model';
 })
 export class WelcomeComponent implements OnInit {
 
-  selectedBase$: Observable<BaseModel>;
-  selectedBase: BaseModel;
+  bases$: Observable<BaseModel[]>;
+  bases: BaseModel[];
+
+  planes$: Observable<PlaneModel[]>;
+  planes: PlaneModel[];
 
   battleField: BattleField;
 
   constructor(private planeService: PlaneBuilderService,
               private sharedStore: Store<fromShared.State>) {
-    this.battleField = new BattleField(planeService);
+    this.battleField = new BattleField(planeService, sharedStore);
   }
 
   ngOnInit() {
-    this.selectedBase$ = this.sharedStore.pipe(
-      select(fromShared.getSelectedBase)
+    this.bases$ = this.sharedStore.pipe(
+      select(fromShared.getBases)
     );
 
-    this.selectedBase$.subscribe(base => {
-      this.selectedBase = base;
+    this.planes$ = this.sharedStore.pipe(
+      select(fromShared.getPlanes)
+    );
+
+    this.bases$.subscribe(bases => {
+      this.bases = bases;
+    });
+
+    this.planes$.subscribe(planes => {
+      this.planes = planes;
     });
   }
 

@@ -1,24 +1,24 @@
 import { createReducer, on } from '@ngrx/store';
-import { SelectedBaseActions } from '../actions';
+import { BaseActions } from '../actions';
 import { BaseModel, IBase } from 'src/app/models/base.model';
 
 // State
 
 export interface State {
-  enemyBase: BaseModel | null;
+  bases: BaseModel[] | null;
 }
 
 export const initialState: State = {
-  enemyBase: null
+  bases: []
 };
 
 // Reducer
 
 export const reducer = createReducer(
   initialState,
-  on(SelectedBaseActions.setSelectedBase, (state, { enemyBase }) => ({...state, enemyBase: enemyBase })),
+  on(BaseActions.setBases, (state, { bases }) => ({...state, bases: bases })),
 );
 
 // Selectors
 
-export const getSelectedBase = (state: State) => state.enemyBase;
+export const getBases = (state: State) => state.bases;

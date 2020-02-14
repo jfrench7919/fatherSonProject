@@ -1,5 +1,7 @@
-import * as SelectedBaseActions from './selected-base.actions';
+import * as BaseActions from './base.actions';
+import * as PlaneActions from './plane.actions';
 
 export {
-  SelectedBaseActions,
+  BaseActions,
+  PlaneActions,
 };

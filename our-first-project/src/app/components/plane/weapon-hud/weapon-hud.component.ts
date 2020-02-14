@@ -1,9 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Plane } from 'src/app/models/plane.model';
+import { PlaneModel } from 'src/app/models/plane.model';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import { SelectedBaseActions } from '../../../shared/store/actions';
-import { BaseModel, BaseExtention, IBase } from '../../../models/base.model';
+import { BaseExtention } from '../../../models/base.model';
 import * as fromShared from '../../../shared/store/reducers';
 
 @Component({
@@ -13,16 +12,16 @@ import * as fromShared from '../../../shared/store/reducers';
 })
 export class WeaponHudComponent implements OnInit {
 
-  @Input() plane: Plane;
+  @Input() plane: PlaneModel;
 
-  selectedBase$: Observable<BaseExtention>;
-  selectedBase: BaseExtention;
+  selectedBase$: Observable<BaseExtention[]>;
+  selectedBase: BaseExtention[];
 
   constructor(private sharedStore: Store<fromShared.State>) { }
 
   ngOnInit() {
     this.selectedBase$ = this.sharedStore.pipe(
-      select(fromShared.getSelectedBase)
+      select(fromShared.getBases)
     );
 
     this.selectedBase$.subscribe(base => {
@@ -31,6 +30,7 @@ export class WeaponHudComponent implements OnInit {
   }
 
   fireGun(): void {
-    this.selectedBase.damage = this.selectedBase.damage + 60;
+   const foundBase = this.selectedBase.find(b => b.selected === true);
+   foundBase.damage = foundBase.damage + 60;
   }
 }

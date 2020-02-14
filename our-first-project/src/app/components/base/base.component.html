@@ -1,4 +1,5 @@
 <div [ngClass]="{'base selected': base.selected } ">
-<div class="base" (click)="onBaseClick(base)"></div>
-<app-base-stats [base]="base"></app-base-stats>
+    <div class="base" (click)="onBaseClick(base)">
+        <app-base-stats [base]="base"></app-base-stats>
+    </div>
 </div>
