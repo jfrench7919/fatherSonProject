@@ -4,8 +4,8 @@ import { BattleField } from '../models/battle-field.model';
 import * as fromShared from '../shared/store/reducers';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import { BaseModel, BaseExtention, IBase } from '../models/base.model';
-import { PlaneModel } from '../models/plane.model';
+import { BaseModel, BaseExtention } from '../models/base.model';
+import { PlaneModel, PlaneExtention } from '../models/plane.model';
 
 @Component({
   selector: 'app-welcome',
@@ -15,10 +15,10 @@ import { PlaneModel } from '../models/plane.model';
 export class WelcomeComponent implements OnInit {
 
   bases$: Observable<BaseModel[]>;
-  bases: BaseModel[];
+  bases: BaseExtention[];
 
   planes$: Observable<PlaneModel[]>;
-  planes: PlaneModel[];
+  planes: PlaneExtention[];
 
   battleField: BattleField;
 

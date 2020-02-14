@@ -3,21 +3,39 @@ import { Gun } from './gun.model';
 import { Bomb } from './bomb.model';
 import { BaseModel } from './base.model';
 
-export class PlaneModel{
+export interface IPlane {
     planeType: string;
+    altitude: number;
+    motorsRunning: boolean;
+    isFlying: boolean;
+
+    motors: Motor[];
+    guns: Gun[];
+    bombs: Bomb[];
+}
+
+export class PlaneModel implements IPlane {
+    planeType: string;
+    altitude: number;
+    motorsRunning: boolean;
+    isFlying: boolean;
+
+    motors: Motor[];
+    guns: Gun[];
+    bombs: Bomb[];
+}
+
+
+export class PlaneExtention implements PlaneModel {
+    planeType: string;
+    altitude: number;
+    motorsRunning: boolean;
 
     motors: Motor[];
     guns: Gun[];
     bombs: Bomb[];
 
-    altitude: number;
-    motorsRunning: boolean;
-
-    public get isFlying() : boolean {
-        return this.altitude > 0;
-    }
-
-    constructor(){
+    constructor() {
         this.motors = [];
         this.guns = [];
         this.bombs = [];
@@ -25,53 +43,61 @@ export class PlaneModel{
         this.motorsRunning = false;
     }
 
-    dropBomb(base: BaseModel){
-
+    get isFlying(): boolean {
+        return this.altitude > 0;
     }
+}
 
-    shootGun(base: BaseModel){
-
-    }
-
-    fly(){
-
-    }
-
-    takeOff(){
-        if (this.motorsRunning){
-            this.altitude = 2000;
-        }
-        else{
+export class PlaneDecorator {
+    takeOff(plane: PlaneExtention) {
+        if (plane.motorsRunning) {
+            plane.altitude = 2000;
+        } else {
             alert('Plane not started');
         }
 
     }
 
-    land(){
-        if (this.isFlying){
-            this.altitude = 0;
-        }
-        else{
+    land(plane: PlaneExtention) {
+        if (plane.isFlying) {
+            plane.altitude = 0;
+        } else {
             alert('This plane is on the ground');
         }
     }
 
-    startMotors(){
-        if (this.motorsRunning){
+    startMotors(plane: PlaneExtention) {
+        if (plane.motorsRunning) {
             alert('Plane is already started');
-        }
-        else{
-            this.motorsRunning = true;
+        } else {
+            plane.motorsRunning = true;
         }
     }
 
-    stopMotors(){
-        if (this.motorsRunning){
-            this.motorsRunning = false;
-        }
-        else{
+    stopMotors(plane: PlaneExtention) {
+        if (plane.motorsRunning) {
+            plane.motorsRunning = false;
+        } else {
             alert('Plane is not started');
         }
     }
+}
 
+export class PlaneWeponsSystem {
+
+    mountBomb(plane: PlaneExtention, target: BaseModel) {
+
+    }
+
+    dropBomb(plane: PlaneExtention, target: BaseModel) {
+
+    }
+
+    mountGuns(plane: PlaneExtention, target: BaseModel) {
+
+    }
+
+    shootGun(plane: PlaneExtention, target: BaseModel) {
+
+    }
 }

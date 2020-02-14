@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PlaneModel } from '../models/plane.model';
+import { PlaneExtention } from '../models/plane.model';
 import { Motor } from '../models/motor.model';
 import { Gun } from '../models/gun.model';
 import { Bomb } from '../models/bomb.model';
@@ -11,22 +11,22 @@ export class PlaneBuilderService {
   constructor() {
   }
 
-  addMotors(plane: PlaneModel, motor: Motor): PlaneModel{
+  addMotors(plane: PlaneExtention, motor: Motor): PlaneExtention{
     plane.motors.push(motor);
     return plane;
   }
 
-  addGuns(plane: PlaneModel, gun: Gun): PlaneModel{
+  addGuns(plane: PlaneExtention, gun: Gun): PlaneExtention{
     plane.guns.push(gun);
     return plane;
   }
 
-  addBomb(plane: PlaneModel, bomb: Bomb): PlaneModel{
+  addBomb(plane: PlaneExtention, bomb: Bomb): PlaneExtention{
     plane.bombs.push(bomb);
     return plane;
   }
 
-  getNewPlane(): PlaneModel{
-    return new PlaneModel();
+  getNewPlane(): PlaneExtention{
+    return new PlaneExtention();
   }
 }

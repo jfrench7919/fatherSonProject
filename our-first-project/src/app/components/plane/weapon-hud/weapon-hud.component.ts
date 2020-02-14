@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PlaneModel } from 'src/app/models/plane.model';
+import { PlaneExtention } from 'src/app/models/plane.model';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { BaseExtention } from '../../../models/base.model';
@@ -12,7 +12,7 @@ import * as fromShared from '../../../shared/store/reducers';
 })
 export class WeaponHudComponent implements OnInit {
 
-  @Input() plane: PlaneModel;
+  @Input() plane: PlaneExtention;
 
   selectedBase$: Observable<BaseExtention[]>;
   selectedBase: BaseExtention[];
