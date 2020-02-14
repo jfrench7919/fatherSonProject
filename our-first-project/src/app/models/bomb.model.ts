@@ -1,3 +1,3 @@
-export class Bomb{
-    
+export class Bomb {
+
 }

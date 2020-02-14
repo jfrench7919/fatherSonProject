@@ -1,3 +1,3 @@
-export class Motor{
-    
+export class Motor {
+
 }

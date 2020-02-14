@@ -14,7 +14,7 @@ export class BattleField {
     planes$: Observable<PlaneModel[]>;
 
     constructor(private planeBuilderService: PlaneBuilderService,
-                private sharedStore: Store<fromShared.State>){
+                private sharedStore: Store<fromShared.State>) {
         this.planes = [];
         this.bases = [];
 

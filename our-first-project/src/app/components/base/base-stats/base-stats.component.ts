@@ -9,7 +9,7 @@ import { BaseModel } from 'src/app/models/base.model';
 export class BaseStatsComponent implements OnInit {
 
   @Input() base: BaseModel;
-  
+
   constructor() { }
 
   ngOnInit() {

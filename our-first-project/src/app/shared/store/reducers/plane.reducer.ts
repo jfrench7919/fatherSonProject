@@ -16,7 +16,7 @@ export const initialState: State = {
 
 export const reducer = createReducer(
   initialState,
-  on(PlaneActions.setPlanes, (state, { planes }) => ({...state, planes: planes })),
+  on(PlaneActions.setPlanes, (state, { planes }) => ({...state, planes })),
 );
 
 // Selectors

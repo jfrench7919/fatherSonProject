@@ -16,7 +16,7 @@ export const initialState: State = {
 
 export const reducer = createReducer(
   initialState,
-  on(BaseActions.setBases, (state, { bases }) => ({...state, bases: bases })),
+  on(BaseActions.setBases, (state, { bases }) => ({...state, bases })),
 );
 
 // Selectors
