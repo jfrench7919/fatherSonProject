@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PlaneModel } from 'src/app/models/plane.model';
+import { PlaneExtention, PlaneDecorator } from 'src/app/models/plane.model';
+import { Store } from '@ngrx/store';
+import * as fromShared from '../../../shared/store/reducers';
 
 @Component({
   selector: 'app-flight-hud',
@@ -8,11 +10,16 @@ import { PlaneModel } from 'src/app/models/plane.model';
 })
 export class FlightHudComponent implements OnInit {
 
-  @Input() plane: PlaneModel;
+  @Input() plane: PlaneExtention;
 
-  constructor() { }
+  constructor(private sharedStore: Store<fromShared.State>) { }
 
   ngOnInit() {
+  }
+
+  startMotorClick(): void {
+    const planeDecorator: PlaneDecorator = new PlaneDecorator();
+    planeDecorator.takeOff(this.plane);
   }
 
 }

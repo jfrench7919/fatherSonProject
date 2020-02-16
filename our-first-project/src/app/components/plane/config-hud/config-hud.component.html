@@ -1,11 +1,11 @@
 <div class="d-inline-flex">
-    <div class="p-2">
-        <button type="button" class="btn btn-dark">Add Bomb</button>
+    <div *ngIf="plane.bombs.length !== plane.bombMax" class="p-2">
+        <button type="button" class="btn btn-dark" (click)="addBombClick()">Add Bomb</button>
     </div>
-    <div class="p-2">
-        <button type="button" class="btn btn-dark">Add Gun</button>
+    <div *ngIf="plane.guns.length !== plane.gunMax" class="p-2">
+        <button type="button" class="btn btn-dark" (click)="addGunClick()">Add Gun</button>
     </div>
-    <div class="p-2">
-        <button type="button" class="btn btn-dark">Add Motor</button>
+    <div *ngIf="plane.motors.length !== plane.motorMax" class="p-2">
+        <button type="button" class="btn btn-dark" (click)="addMotorClick()">Add Motor</button>
     </div>
 </div>

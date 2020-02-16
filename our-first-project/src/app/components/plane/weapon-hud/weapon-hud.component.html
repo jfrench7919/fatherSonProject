@@ -1,8 +1,8 @@
 <div class="d-inline-flex">
-    <div class="p-2">
+    <div *ngIf="this.plane.guns.length > 0" class="p-2">
         <button type="button" class="btn btn-dark" (click)="fireGun()">Fire Guns</button>
     </div>    
-    <div class="p-2">
+    <div *ngIf="this.plane.bombs.length > 0" class="p-2">
         <button type="button" class="btn btn-dark">Launch Bomb</button>
     </div>
 </div>

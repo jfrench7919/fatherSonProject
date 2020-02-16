@@ -1,4 +1,4 @@
-<div class="d-flex flex-wrap">
+<div class="d-flex flex-wrap stats">
     <div class="p-2 text-warning bold">
         #Bombs: {{this.plane.bombs.length}}
     </div>
@@ -11,10 +11,16 @@
     <div class="p-2 text-warning bold">
         #Altitude: {{this.plane.altitude}}
     </div>
-    <div class="p-2 text-warning bold">
-        #Motor On: {{this.plane.motorsRunning}}
+    <div *ngIf="this.plane.isFlying" class="p-2 text-warning bold">
+        In Flight
     </div>
-    <div class="p-2 text-warning bold">
-        #In Flight: {{this.plane.isFlying}}
+    <div *ngIf="!this.plane.isFlying" class="p-2 text-warning bold">
+        On Ground
+    </div>
+    <div *ngIf="this.plane.motorsRunning" class="p-2 text-warning bold">
+        Motor On
+    </div>
+    <div *ngIf="!this.plane.motorsRunning" class="p-2 text-warning bold">
+        Motor Off
     </div>
 </div>

@@ -1,5 +1,8 @@
 <div class="justify-content-center">
     <div class="plane"></div>
+    <div>
+        <app-plane-stats [plane]="plane"></app-plane-stats>
+    </div>
     <button type="button" class="btn btn-secondary" [ngbPopover]="popContent" popoverTitle="Heads Up Display">
     Display Hud
     </button>
@@ -7,17 +10,14 @@
         <div *ngIf="!this.plane.isFlying">
             <app-config-hud [plane]="this.plane"></app-config-hud>
         </div>
-        <div *ngIf="!this.plane.motorRunning">
+        <div *ngIf="this.plane.motors.length > 0 && !this.plane.isFlying">
             <app-motor-hud [plane]="this.plane"></app-motor-hud>
         </div>
-        <div *ngIf="this.plane.motorRunning">
+        <div *ngIf="this.plane.motorsRunning">
             <app-flight-hud [plane]="this.plane"></app-flight-hud>
         </div>
         <div *ngIf="this.plane.isFlying">
             <app-weapon-hud [plane]="this.plane"></app-weapon-hud>
-        </div>
-        <div>
-            <app-plane-stats [plane]="this.plane"></app-plane-stats>
         </div>
     </ng-template>
 </div>
