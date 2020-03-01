@@ -32,7 +32,7 @@ export class WeaponHudComponent implements OnInit {
 
   fireGun(): void {
    const foundBase = this.selectedBase.find(b => b.selected === true);
-   foundBase.damage = foundBase.damage + (this.plane.guns.length * 60);
+   this.baseDecorator.recieveDamage(foundBase, (this.plane.guns.length * 60));
   }
 
   launchBomb(): void {
