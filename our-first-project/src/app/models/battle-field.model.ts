@@ -33,6 +33,18 @@ export class BattleField {
         this.planes$.subscribe(planes => {
             this.planes = planes;
         });
+
+        this.checkBaseHealth(this);
+    }
+
+    private checkBaseHealth(m){
+        setTimeout(function(){ 
+            const foundDead = m.bases.filter(base => base.destroyed)
+            foundDead.forEach(base => {
+                m.bases = m.bases.filter(foundBase => foundBase !== base);
+            }) 
+            m.checkBaseHealth(m);
+        }, 6000);
     }
 
     public addBase(): void {

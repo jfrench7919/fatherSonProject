@@ -17,9 +17,14 @@ export class FlightHudComponent implements OnInit {
   ngOnInit() {
   }
 
-  startMotorClick(): void {
+  takeOffClick(): void {
     const planeDecorator: PlaneDecorator = new PlaneDecorator();
     planeDecorator.takeOff(this.plane);
+  }
+
+  landClick(): void {
+    const planeDecorator: PlaneDecorator = new PlaneDecorator();
+    planeDecorator.land(this.plane);
   }
 
 }
