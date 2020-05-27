@@ -9,10 +9,21 @@ import { PlaneModel } from 'src/app/models/plane.model';
 export class PlaneComponent implements OnInit {
 
   @Input() plane: PlaneModel;
+  hudButtonName: string;
 
   constructor() { }
 
   ngOnInit() {
+    this.hudButtonName = "Display Hud";
+  }
+
+  changeHudButton():void {
+    if (this.hudButtonName === "Display Hud"){
+      this.hudButtonName = "Close Hud";
+    }
+    else{
+      this.hudButtonName = "Display Hud";
+    }
   }
 
 }

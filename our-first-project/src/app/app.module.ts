@@ -26,6 +26,7 @@ import {faAngleDoubleLeft, faAngleDoubleRight} from '@fortawesome/free-solid-svg
 import { environment } from '../environments/environment';
 
 import { SharedModule } from './shared/shared.module';
+import { PlaneStatsHudComponent } from './components/plane/plane-stats-hud/plane-stats-hud.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SharedModule } from './shared/shared.module';
     FlightHudComponent,
     ConfigHudComponent,
     PlaneStatsComponent,
-    BaseStatsComponent
+    BaseStatsComponent,
+    PlaneStatsHudComponent
   ],
   imports: [
     BrowserModule,

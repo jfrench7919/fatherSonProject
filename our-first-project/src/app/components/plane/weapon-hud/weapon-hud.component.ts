@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { PlaneExtention } from 'src/app/models/plane.model';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import { BaseExtention } from '../../../models/base.model';
+import { BaseExtention, BaseDecorator } from '../../../models/base.model';
 import * as fromShared from '../../../shared/store/reducers';
 
 @Component({
@@ -16,6 +16,7 @@ export class WeaponHudComponent implements OnInit {
 
   selectedBase$: Observable<BaseExtention[]>;
   selectedBase: BaseExtention[];
+  baseDecorator: BaseDecorator = new BaseDecorator();
 
   constructor(private sharedStore: Store<fromShared.State>) { }
 
@@ -31,6 +32,12 @@ export class WeaponHudComponent implements OnInit {
 
   fireGun(): void {
    const foundBase = this.selectedBase.find(b => b.selected === true);
-   foundBase.damage = foundBase.damage + 60;
+   this.baseDecorator.recieveDamage(foundBase, (this.plane.guns.length * 60));
   }
+
+  launchBomb(): void {
+    const foundBase = this.selectedBase.find(b => b.selected === true);
+    this.plane.bombs.pop();
+    this.baseDecorator.recieveDamage(foundBase, 500);
+   }
 }

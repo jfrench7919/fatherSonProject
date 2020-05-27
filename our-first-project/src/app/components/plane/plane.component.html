@@ -3,10 +3,13 @@
     <div>
         <app-plane-stats [plane]="plane"></app-plane-stats>
     </div>
-    <button type="button" class="btn btn-secondary" [ngbPopover]="popContent" popoverTitle="Heads Up Display">
-    Display Hud
+    <button type="button" class="btn btn-secondary" (click)="changeHudButton()" [ngbPopover]="popContent" [autoClose]="false" popoverTitle="Heads Up Display">
+    {{hudButtonName}}
     </button>
     <ng-template #popContent>
+        <div>
+            <app-plane-stats-hud [plane]="this.plane"></app-plane-stats-hud>
+        </div>
         <div *ngIf="!this.plane.isFlying">
             <app-config-hud [plane]="this.plane"></app-config-hud>
         </div>

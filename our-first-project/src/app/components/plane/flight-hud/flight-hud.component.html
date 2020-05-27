@@ -1,8 +1,8 @@
 <div class="d-inline-flex">
-    <div *ngIf="!this.plane.isFlying" class="p-2" (click)="startMotorClick()">
+    <div *ngIf="!this.plane.isFlying" class="p-2" (click)="takeOffClick()">
         <button type="button" class="btn btn-dark">Take Off</button>
     </div>
     <div *ngIf="this.plane.isFlying" class="p-2">
-        <button type="button" class="btn btn-dark">Land</button>
+        <button type="button" class="btn btn-dark" (click)="landClick()">Land</button>
     </div>
 </div>
